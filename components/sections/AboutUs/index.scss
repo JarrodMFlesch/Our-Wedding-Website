@@ -2,6 +2,7 @@
 
 .about-us {
   h1, p {
+    position: relative;
     background: white;
     display: inline-block;
     margin: -1px;
@@ -9,7 +10,7 @@
   }
 
   h1 {
-    margin-bottom: -2px;
+    bottom: -1px;
   }
 
   @include mid-break {
