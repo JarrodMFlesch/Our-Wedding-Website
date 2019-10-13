@@ -9,10 +9,11 @@
   }
 
   @include mid-break {
+    h1 {
+      margin-bottom: -2px;
+    }
+
     h1, p {
-      background: white;
-      display: inline-block;
-      margin: -1px;
       padding: 10px 10px 0px 0px;
     }
 
