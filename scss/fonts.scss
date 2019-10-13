@@ -1,8 +1,9 @@
 @font-face {
-	font-family: 'Abhaya Libre', serif;
-	src: url('https://fonts.googleapis.com/css?family=Abhaya+Libre:800&display=swap');
-	font-weight: 800;
-	font-style: normal;
+  font-family: 'Abhaya Libre';
+  src: url('/static/fonts/AbhayaLibre-ExtraBold.woff2') format('woff2'),
+      url('/static/fonts/AbhayaLibre-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {
