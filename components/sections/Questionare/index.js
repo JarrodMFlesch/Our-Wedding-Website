@@ -15,10 +15,8 @@ class Questionare extends Component {
 
     return (
       <div>
-        <h2>How well do you know us!?</h2>
-        <div>
-
-        </div>
+        <h3>How well do you know us!?</h3>
+        <div />
         <p>
           Questionare&nbsp;
           {currentCardsIndex}
