@@ -1,6 +1,10 @@
 @import '_styles';
 
 .about-us {
+  h1 {
+    margin-bottom: -2px;
+  }
+
   h1, p {
     background: white;
     display: inline-block;
@@ -9,10 +13,6 @@
   }
 
   @include mid-break {
-    h1 {
-      margin-bottom: -2px;
-    }
-
     h1, p {
       padding: 10px 10px 0px 0px;
     }
