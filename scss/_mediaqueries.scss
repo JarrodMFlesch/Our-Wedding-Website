@@ -1,0 +1,39 @@
+/////////////////////////////
+// MEDIA QUERIES
+/////////////////////////////
+
+@mixin tiny-break {
+	@media (max-width: #{$tiny-width}) {
+		@content;
+	}
+}
+
+@mixin small-break {
+	@media (max-width: #{$mobile-width}) {
+		@content;
+	}
+}
+
+@mixin mid-break {
+	@media (max-width: #{$tablet-width}) {
+		@content;
+	}
+}
+
+@mixin large-break {
+	@media (max-width: #{$large-width}) {
+		@content;
+	}
+}
+
+@mixin frame-break {
+	@media (max-width: #{$frame-width}) {
+		@content;
+	}
+}
+
+@mixin modal-width-and-larger {
+	@media (min-width: #{$modal-width}) {
+		@content;
+	}
+}

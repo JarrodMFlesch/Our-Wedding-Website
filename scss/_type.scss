@@ -1,0 +1,137 @@
+@import '_variables';
+@import '_mediaqueries';
+
+/////////////////////////////
+// MEGA HEADINGS
+/////////////////////////////
+
+%h1 {
+	font-family: $font-heading;
+	font-size: base(3);
+	line-height: 1;
+	margin: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  @include large-break {
+    font-size: base(2);
+    line-height: base(2.5);
+  }
+
+  @include tiny-break {
+    font-size: base(1.25);
+    line-height: base(1.5);
+  }
+}
+
+/////////////////////////////
+// HEADINGS
+/////////////////////////////
+
+%h2 {
+	font-family: $font-heading;
+	font-size: base(2.5);
+	line-height: 1;
+	margin: 0 0 base(1);
+  font-weight: 900;
+  text-transform: uppercase;
+
+  @include small-break {
+    font-size: base(1.5);
+    line-height: base(1.5);
+	  margin: 0 0 base(.5);
+  }
+}
+
+%h3,
+%large-paragraph {
+	font-family: $font-heading;
+	font-size: base(2);
+	font-weight: 900;
+  line-height: 1;
+	margin: 0 0 base(2);
+
+  @include small-break {
+    font-size: base(1.5);
+    line-height: base(1.5);
+    margin: 0 0 base(1);
+  }
+}
+
+%h4 {
+  color: $sage-green;
+	font-family: $font-heading;
+	font-size: base(1);
+  font-weight: 900;
+  line-height: calc(#{$line-height} / 2);
+	margin: 0 0 base(.25);
+}
+
+%h5 {
+  font-family: $font-heading;
+  letter-spacing: 1px;
+	font-size: base(.75);
+	line-height: 1;
+	margin: 0 0 base(1);
+  font-weight: 900;
+  text-transform: uppercase;
+
+  @include small-break {
+    font-size: base(1);
+    line-height: base(1);
+  }
+}
+
+%h6 {
+  font-family: $font-heading;
+  letter-spacing: 1px;
+	font-size: base(.65);
+	line-height: 1;
+	margin: 0 0 base(.56);
+  font-weight: 900;
+  text-transform: uppercase;
+
+  @include small-break {
+    font-size: base(.9);
+    line-height: base(1);
+  }
+}
+
+%p {
+  font-size: $body-font-size;
+	line-height: $line-height;
+  margin: 0 0 base(.5);
+
+  @include small-break {
+    font-size: $body-font-size-small-break;
+    line-height: $mobile-line-height;
+	  margin: 0 0 base(.75);
+  }
+}
+
+%small {
+	font-size: 17px;
+	line-height: 30px;
+  margin: 0 0 base(.5);
+}
+
+%a {
+  transition: box-shadow $trans-time $trans-curve, color $trans-time $trans-curve;
+  text-decoration: none;
+  color: $forest-green;
+
+  &:hover {
+    color: lighten($forest-green, 5%);
+    box-shadow: 0 2px 0 0 lighten($forest-green, 5%);
+  }
+}
+
+%label {
+  font-family: $font-heading;
+  font-size: base(.72);
+  line-height: base(.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 900;
+  margin: 0 0 base(1.25);
+}

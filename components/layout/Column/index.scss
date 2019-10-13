@@ -1,0 +1,224 @@
+@import '_styles';
+
+/////////////////////////////
+// COLUMN MIXINS
+/////////////////////////////
+
+@mixin col-margins {
+  margin-left: calc(#{$gutter} / 2);
+  margin-right: calc(#{$gutter} / 2);
+
+  @include small-break {
+    margin-left: calc(#{$mobileGutter} / 2);
+    margin-right: calc(#{$mobileGutter} / 2);
+  }
+}
+
+@mixin col($col) {
+
+  &:not(.column--gutter-disabled) {
+    @include col-margins;
+    width: calc(#{$col / $cols * 100}% - #{$gutter});
+  }
+
+  &.column--gutter-disabled {
+    width: $col / $cols * 100%;
+  }
+
+  @include small-break {
+    &:not(.column--gutter-disabled) {
+      width: calc(#{$col / $cols * 100}% - #{$mobileGutter});
+    }
+  }
+}
+
+@mixin push($col) {
+  &:not(.column--gutter-disabled) {
+    margin-right: calc(#{$gutter} / 2);
+    margin-left: calc(#{$col / $cols * 100%} + #{$gutter / 2});
+  }
+
+  @include small-break {
+    &:not(.column--gutter-disabled) {
+      margin-right: calc(#{$mobileGutter} / 2);
+      margin-left: calc(#{$col / $cols * 100%} + #{$mobileGutter / 2});
+    }
+  }
+}
+
+/////////////////////////////
+// STYLE DEFINITIONS
+/////////////////////////////
+
+.column {
+  display: flex;
+  justify-content: flex-start;
+
+  // This style breaks nested grids
+  // > * {
+  //   max-width: 100%; // For IE11 flex-direction: column
+  // }
+
+  &:not(.column--margin-disabled) {
+    @include col-margins;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--direction-column { flex-direction: column; }
+  &--wrap-enabled { flex-wrap: wrap; }
+
+  &--justify-start { justify-content: flex-start; }
+  &--justify-center { justify-content: center; }
+  &--justify-end { justify-content: flex-end; }
+  &--justify-space-between { justify-content: space-between; }
+
+  &--align-start { align-items: flex-start; }
+  &--align-center { align-items: center; }
+  &--align-end { align-items: flex-end; }
+
+  &--span-auto {
+    @include col-margins;
+    width: auto;
+  }
+
+  &--span-grow {
+    @include col-margins;
+    flex-grow: 1;
+  }
+
+  &--span-1 { @include col(1); }
+  &--span-2 { @include col(2); }
+  &--span-3 { @include col(3); }
+  &--span-4 { @include col(4); }
+  &--span-5 { @include col(5); }
+  &--span-6 { @include col(6); }
+  &--span-7 { @include col(7);}
+  &--span-8 { @include col(8); }
+  &--span-9 { @include col(9); }
+  &--span-10 { @include col(10); }
+  &--span-11 { @include col(11); }
+  &--span-12 { @include col(12); }
+
+  &--push-0 { @include push(0); }
+  &--push-1 { @include push(1); }
+  &--push-2 { @include push(2); }
+  &--push-3 { @include push(3); }
+  &--push-4 { @include push(4); }
+  &--push-5 { @include push(5); }
+  &--push-6 { @include push(6); }
+  &--push-7 { @include push(7);}
+  &--push-8 { @include push(8); }
+  &--push-9 { @include push(9); }
+  &--push-10 { @include push(10); }
+  &--push-11 { @include push(11); }
+  &--push-12 { @include push(12); }
+
+  /////////////////////////////
+  // MEDIA QUERIES
+  /////////////////////////////
+
+  @include frame-break {
+    &--frame-break-span-1 { @include col(1); }
+    &--frame-break-span-2 { @include col(2); }
+    &--frame-break-span-3 { @include col(3); }
+    &--frame-break-span-4 { @include col(4); }
+    &--frame-break-span-5 { @include col(5); }
+    &--frame-break-span-6 { @include col(6); }
+    &--frame-break-span-7 { @include col(7);}
+    &--frame-break-span-8 { @include col(8); }
+    &--frame-break-span-9 { @include col(9); }
+    &--frame-break-span-10 { @include col(10); }
+    &--frame-break-span-11 { @include col(11); }
+    &--frame-break-span-12 { @include col(12); }
+  }
+
+  @include large-break {
+    &--large-break-span-1 { @include col(1); }
+    &--large-break-span-2 { @include col(2); }
+    &--large-break-span-3 { @include col(3); }
+    &--large-break-span-4 { @include col(4); }
+    &--large-break-span-5 { @include col(5); }
+    &--large-break-span-6 { @include col(6); }
+    &--large-break-span-7 { @include col(7);}
+    &--large-break-span-8 { @include col(8); }
+    &--large-break-span-9 { @include col(9); }
+    &--large-break-span-10 { @include col(10); }
+    &--large-break-span-11 { @include col(11); }
+    &--large-break-span-12 { @include col(12); }
+
+    &--large-break-push-0 { @include push(0); }
+    &--large-break-push-1 { @include push(1); }
+    &--large-break-push-2 { @include push(2); }
+    &--large-break-push-3 { @include push(3); }
+    &--large-break-push-4 { @include push(4); }
+    &--large-break-push-5 { @include push(5); }
+    &--large-break-push-6 { @include push(6); }
+    &--large-break-push-7 { @include push(7);}
+    &--large-break-push-8 { @include push(8); }
+    &--large-break-push-9 { @include push(9); }
+    &--large-break-push-10 { @include push(10); }
+    &--large-break-push-11 { @include push(11); }
+    &--large-break-push-12 { @include push(12); }
+  }
+
+  @include mid-break {
+    &--mid-break-span-1 { @include col(1); }
+    &--mid-break-span-2 { @include col(2); }
+    &--mid-break-span-3 { @include col(3); }
+    &--mid-break-span-4 { @include col(4); }
+    &--mid-break-span-5 { @include col(5); }
+    &--mid-break-span-6 { @include col(6); }
+    &--mid-break-span-7 { @include col(7);}
+    &--mid-break-span-8 { @include col(8); }
+    &--mid-break-span-9 { @include col(9); }
+    &--mid-break-span-10 { @include col(10); }
+    &--mid-break-span-11 { @include col(11); }
+    &--mid-break-span-12 { @include col(12); }
+
+    &--mid-break-push-0 { @include push(0); }
+    &--mid-break-push-1 { @include push(1); }
+    &--mid-break-push-2 { @include push(2); }
+    &--mid-break-push-3 { @include push(3); }
+    &--mid-break-push-4 { @include push(4); }
+    &--mid-break-push-5 { @include push(5); }
+    &--mid-break-push-6 { @include push(6); }
+    &--mid-break-push-7 { @include push(7);}
+    &--mid-break-push-8 { @include push(8); }
+    &--mid-break-push-9 { @include push(9); }
+    &--mid-break-push-10 { @include push(10); }
+    &--mid-break-push-11 { @include push(11); }
+    &--mid-break-push-12 { @include push(12); }
+  }
+
+  @include small-break {
+    &--small-break-span-1 { @include col(1); }
+    &--small-break-span-2 { @include col(2); }
+    &--small-break-span-3 { @include col(3); }
+    &--small-break-span-4 { @include col(4); }
+    &--small-break-span-5 { @include col(5); }
+    &--small-break-span-6 { @include col(6); }
+    &--small-break-span-7 { @include col(7);}
+    &--small-break-span-8 { @include col(8); }
+    &--small-break-span-9 { @include col(9); }
+    &--small-break-span-10 { @include col(10); }
+    &--small-break-span-11 { @include col(11); }
+    &--small-break-span-12 { @include col(12); }
+
+    &--small-break-push-0 { @include push(0); }
+    &--small-break-push-1 { @include push(1); }
+    &--small-break-push-2 { @include push(2); }
+    &--small-break-push-3 { @include push(3); }
+    &--small-break-push-4 { @include push(4); }
+    &--small-break-push-5 { @include push(5); }
+    &--small-break-push-6 { @include push(6); }
+    &--small-break-push-7 { @include push(7);}
+    &--small-break-push-8 { @include push(8); }
+    &--small-break-push-9 { @include push(9); }
+    &--small-break-push-10 { @include push(10); }
+    &--small-break-push-11 { @include push(11); }
+    &--small-break-push-12 { @include push(12); }
+  }
+}

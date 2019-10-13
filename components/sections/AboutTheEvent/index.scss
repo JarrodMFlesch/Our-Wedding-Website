@@ -1,0 +1,10 @@
+@import '_styles';
+
+.about-the-event {
+
+  @include mid-break {
+    &__information {
+      margin-top: base(1);
+    }
+  }
+}

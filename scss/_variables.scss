@@ -1,4 +1,101 @@
+@import '_mediaqueries';
+
+//////////////////////////////
+// BASELINE GRID
+//////////////////////////////
+
+$body-font-size: 21px;
+$body-font-size-small-break: 17px;
+$baseline-px: 25px;
+$baseline: ($baseline-px / $body-font-size) + rem; // This computes to 40px in rem
+
+@function base($multiplier) {
+  @return ($baseline-px / $body-font-size) * $multiplier + rem;
+}
+
+//////////////////////////////
+// FONTS
+//////////////////////////////
+
+$font-body: "EurostileNext", "Helvetica Neue", Arial, Helvetica, sans-serif;
+$font-heading: "Abhaya Libre", Arial, Helvetica, sans-serif;
+
+/////////////////////////////
+// TYPE
+/////////////////////////////
+
+$line-height: base(1.4);
+$mobile-line-height: base(1.25);
+
+/////////////////////////////
+// COLORS
+/////////////////////////////
+
+$light-sage-green: #E9ECEA;
 $sage-green: #82958C;
 $forest-green: #49656E;
 $sky-blue: #B3C3CE;
 $navy-blue: #436285;
+$dark-gray: #353635;
+$black-gray: darken($dark-gray, 20%);
+
+/////////////////////////////
+// GRID
+/////////////////////////////
+
+$gutter: base(2);
+$mobileGutter: base(1.5);
+$tinyGutter: base(.75);
+$cols: 12;
+
+/////////////////////////////
+// BREAKPOINTS
+/////////////////////////////
+
+// Mirror any adjustments made here within ../breakpoints.js
+$tiny-width: 480px;
+$mobile-width: 600px;
+$tablet-width: 850px;
+$large-width: 1024px;
+$frame-width: 1140px;
+$site-width: 1300px;
+$modal-width: 1440px;
+$desktop-width: 1920px;
+
+//////////////////////////////
+// TRANSITIONS
+//////////////////////////////
+
+$trans-time: 200ms;
+$trans-curve: ease;
+
+/////////////////////////////
+// LAYERS
+/////////////////////////////
+
+$z-header: 40;
+
+/////////////////////////////
+// MISC.
+/////////////////////////////
+
+$stroke-width: 3px;
+
+/////////////////////////////
+// MIXINS
+/////////////////////////////
+
+@mixin button-reset {
+  text-align: left;
+  border: none;
+  -webkit-appearance: none;
+  font-family: $font-body;
+  line-height: inherit;
+  padding: 0;
+  background-color: transparent;
+  font-size: unset;
+  color: unset;
+  cursor: pointer;
+
+  &:focus { outline: none; }
+}

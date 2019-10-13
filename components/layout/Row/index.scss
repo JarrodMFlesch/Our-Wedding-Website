@@ -1,0 +1,30 @@
+@import '_styles';
+
+@mixin neg-col-margin() {
+  margin-bottom: - $gutter;
+  @include small-break { margin-bottom: - $mobileGutter; }
+}
+
+.row {
+	display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &:not(.row--gutter-disabled) {
+    margin-right: calc(#{$gutter} / -2);
+    margin-left: calc(#{$gutter} / -2);
+    width: calc(100% + #{$gutter});
+  }
+
+  &--negative-margin-enabled {
+    @include neg-col-margin;
+  }
+
+  @include small-break {
+    &:not(.row--gutter-disabled) {
+      margin-right: calc(#{$mobileGutter} / -2);
+      margin-left: calc(#{$mobileGutter} / -2);
+      width: calc(100% + #{$mobileGutter});
+    }
+  }
+}

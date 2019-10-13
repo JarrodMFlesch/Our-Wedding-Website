@@ -1,0 +1,137 @@
+@import 'fonts';
+@import '_styles';
+
+/////////////////////////////
+// GLOBAL DEFAULTS
+/////////////////////////////
+
+* { box-sizing: border-box; }
+
+html {
+  background-color: white;
+  font-size: $body-font-size;
+  color: $dark-gray;
+  font-weight: 300;
+	line-height: base(1.4);
+  position: relative;
+
+	@include small-break {
+    font-size: $body-font-size-small-break;
+	}
+}
+
+body {
+  font-family: $font-body;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+	@include small-break {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+.page {
+  position: relative;
+  opacity: 1;
+  height: 100%;
+
+  > .loading-indicator {
+    width: base(6);
+    height: base(6);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.page_transition-wrap {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transition: opacity $trans-time;
+  }
+
+  &-enter-done {
+    opacity: 1;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity $trans-time;
+  }
+
+  &-exit-done {
+    opacity: 0;
+  }
+}
+
+img {
+	max-width: 100%;
+  height: auto;
+  flex-shrink: 0; // IE11
+}
+
+::selection {
+	background: $sage-green;
+  color: $dark-gray;
+}
+
+/////////////////////////////
+// TYPOGRAPHIC ELEMENTS
+/////////////////////////////
+
+h1, .h1 { @extend %h1; }
+
+h2, .h2 { @extend %h2; }
+
+h3, .h3 { @extend %h3; }
+
+h4, .h4 { @extend %h4; }
+
+h5, .h5 { @extend %h5; }
+
+h6, .h6 { @extend %h6; }
+
+p, .p { @extend %p; }
+
+small, .small { @extend %small; }
+
+a, .a {  @extend %a; }
+
+label, .label { @extend %label; }
+
+/////////////////////////////
+// TYPOGRAPHIC CLASSES
+/////////////////////////////
+
+.large-paragraph { @extend %large-paragraph; }
+
+/////////////////////////////
+// GRID CLASSES
+/////////////////////////////
+
+/////////////////////////////
+// MISC ELEMENTS
+/////////////////////////////
+
+button { @include button-reset; }
+
+hr.hr-short {
+  border: $stroke-width / 2 $dark-gray solid;
+  width: base(2);
+  margin: base(2) 0;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}

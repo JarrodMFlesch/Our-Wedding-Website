@@ -1,0 +1,28 @@
+@import '_styles';
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-header;
+  box-shadow: 0px -2px 5px transparent;
+  transition: box-shadow $trans-time $trans-curve;
+  background: white;
+
+  padding: base(1) 0;
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--show-shadow {
+    box-shadow: 0px 2px 10px rgba($black-gray, .08);
+  }
+
+  &__logo {
+    margin-bottom: 0;
+  }
+}

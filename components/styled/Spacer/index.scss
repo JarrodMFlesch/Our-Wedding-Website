@@ -1,0 +1,31 @@
+@import '_styles';
+
+.spacer {
+  display: block;
+
+  &--small {
+    height: base(2);
+  }
+
+  &--medium {
+    height: base(4);
+  }
+
+  &--large {
+    height: base(6);
+  }
+
+  @include mid-break {
+    &--small {
+      height: base(1);
+    }
+
+    &--medium {
+      height: base(2.5);
+    }
+
+    &--large {
+      height: base(3);
+    }
+  }
+}

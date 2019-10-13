@@ -1,0 +1,23 @@
+@import '_styles';
+
+.about-us {
+  h1, p {
+    background: white;
+    display: inline-block;
+    margin: -1px;
+    padding: 10px 15px 0px 0px;
+  }
+
+  @include mid-break {
+    h1, p {
+      background: white;
+      display: inline-block;
+      margin: -1px;
+      padding: 10px 10px 0px 0px;
+    }
+
+    br {
+      display: none;
+    }
+  }
+}

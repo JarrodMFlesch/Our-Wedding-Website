@@ -1,0 +1,28 @@
+@import '_styles.scss';
+
+.site-width {
+	max-width: $site-width;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: base(1.75);
+  padding-right: base(1.75);
+
+  /////////////////////////////
+  // MEDIA QUERIES
+  /////////////////////////////
+
+  @include mid-break {
+    padding-left: base(1);
+    padding-right: base(1);
+  }
+
+  @include small-break {
+    padding-left: $mobileGutter;
+    padding-right: $mobileGutter;
+  }
+
+  @include small-break {
+    padding-left: $tinyGutter;
+    padding-right: $tinyGutter;
+  }
+}
