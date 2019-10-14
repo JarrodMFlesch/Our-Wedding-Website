@@ -12,15 +12,15 @@ const baseClass = 'about-the-event';
 const AboutTheEvent = (props) => {
   return (
     <Row>
-      <Column span={6} midBreak={12}>
+      <Column span={4} midBreak={10} midPush={1}>
         <ImageWithOutline
-          image="/static/img/brew-ya-tall.jpg"
+          image="/static/img/tree-gazin.jpg"
           alignment="left"
           useOutline
         />
       </Column>
 
-      <Column className={`${baseClass}__information`} span={6} midBreak={12}>
+      <Column className={`${baseClass}__information`} push={1} span={7} midBreak={12}>
         <div>
           <h2>About the event</h2>
           <h4>Location</h4>
@@ -34,10 +34,6 @@ const AboutTheEvent = (props) => {
             2020 at 2PM
           </p>
           <h4>Attire</h4>
-          <p>some other content</p>
-          <h4>Other note</h4>
-          <p>some other content</p>
-          <h4>Other note</h4>
           <p>some other content</p>
           <h4>Other note</h4>
           <p>some other content</p>

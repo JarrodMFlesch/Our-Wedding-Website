@@ -21,9 +21,11 @@ const Home = () => {
 
       <AboutTheEvent />
 
-      <Spacer size="large" />
+      <Spacer size="medium" />
 
       <Questionare />
+
+      <Spacer size="large" />
     </SiteWidth>
   );
 };

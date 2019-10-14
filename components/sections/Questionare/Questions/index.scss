@@ -1,0 +1,52 @@
+@import '_styles';
+
+.questions {
+  &__question-text {
+    margin-bottom: base(3);
+  }
+
+  &__question-card {
+    position: relative;
+    border: 2px solid $sage-green;
+    color: $sage-green;
+    background: white;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+      .card-number {
+        transform: translate(-30px, -30px);
+      }
+    }
+
+    .card-number {
+      text-align: center;
+      font-family: $font-heading;
+      font-size: base(1.25);
+      border: 1px solid $sage-green;
+      color: $sage-green;
+      background-color: #F1F3F2;
+      z-index: -1;
+      position: absolute;
+      transform: translate(-25px, -25px);
+      min-width: 40px;
+      min-height: 40px;
+      padding: 5px;
+      transition: 300ms ease;
+    }
+
+    button {
+      height: 100%;
+      width: 100%;
+      padding: 30px 25px;
+
+      p {
+        font-size: base(1);
+      }
+    }
+
+    * {
+      margin-bottom: 0px;
+    }
+  }
+}

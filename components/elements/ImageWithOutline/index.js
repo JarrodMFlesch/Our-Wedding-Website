@@ -55,7 +55,7 @@ class ImageWithOutline extends Component {
 
     return (
       <div className={classes}>
-        <Parallax speed={0.35}>
+        <Parallax speed={0.2}>
           <img
             className={`${baseClass}__image`}
             src={image}

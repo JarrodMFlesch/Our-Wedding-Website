@@ -1,29 +1,34 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-class Questionare extends Component {
-  constructor() {
-    super();
+import Row from '../../layout/Row';
+import Column from '../../layout/Column';
 
-    this.state = {
-      currentCardsIndex: 0,
-    };
-  }
+import Questions from './Questions';
 
-  render() {
-    const { currentCardsIndex } = this.state;
+import './index.scss';
 
-    return (
-      <div>
-        <h3>How well do you know us!?</h3>
-        <div />
-        <p>
-          Questionare&nbsp;
-          {currentCardsIndex}
-        </p>
-      </div>
-    );
-  }
-}
+const baseClass = 'questionare';
+
+const Questionare = () => {
+  return (
+    <div className={baseClass}>
+      <Row className={`${baseClass}__heading`}>
+        <Column span={12}>
+          <h3>
+            How well do you know us?
+            &nbsp;
+            <span className="h4" role="img" aria-label="winking smiley face">😉</span>
+          </h3>
+        </Column>
+      </Row>
+
+      <Row className={`${baseClass}__question`}>
+        <Column span={12}>
+          <Questions />
+        </Column>
+      </Row>
+    </div>
+  );
+};
 
 export default Questionare;
