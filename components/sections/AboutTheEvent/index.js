@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Row from '../../layout/Row';
 import Column from '../../layout/Column';
-import StackedImages from '../../elements/StackedImages';
+import ImageWithOutline from '../../elements/ImageWithOutline';
 
 import './index.scss';
 
@@ -13,10 +13,10 @@ const AboutTheEvent = (props) => {
   return (
     <Row>
       <Column span={6} midBreak={12}>
-        <StackedImages
-          primaryImage="/static/img/brew-ya-tall.jpg"
-          secondaryImage="/static/img/brew-ya-tall.jpg"
+        <ImageWithOutline
+          image="/static/img/brew-ya-tall.jpg"
           alignment="left"
+          useOutline
         />
       </Column>
 

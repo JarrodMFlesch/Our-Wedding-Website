@@ -52,14 +52,8 @@
   @include tiny-break {
     &--overlay-text {
 
-      .image-content {
-        &__content {
-          max-width: 100%;
-        }
-
-        &__image {
-          padding-bottom: 100px;
-        }
+      &__image {
+        padding-bottom: 100px;
       }
     }
   }

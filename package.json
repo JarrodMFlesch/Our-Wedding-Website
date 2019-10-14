@@ -23,6 +23,7 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "dotenv": "^8.1.0",
+    "lodash": "^4.17.15",
     "next": "^9.0.5",
     "next-redux-wrapper": "^3.0.0",
     "node-sass": "^4.12.0",

@@ -1,0 +1,27 @@
+@import '_styles';
+
+$outline-offset: base(2);
+
+.image-with-outline {
+  position: relative;
+  margin-top: $outline-offset;
+
+  &--left {
+    .image-with-outline {
+      &__offset-outline {
+        right: unset;
+        left: -$outline-offset;
+      }
+    }
+  }
+
+  &__offset-outline {
+    border: 4px solid;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -$outline-offset;
+    left: -$outline-offset;
+    z-index: 1;
+  }
+}
