@@ -7,6 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "prod": "npm i && next build && node server.js -p $PORT",
     "export": "npm i && next build && next export"
   },
   "repository": {
@@ -22,7 +23,10 @@
   "homepage": "https://github.com/JarrodMFlesch/Our-Wedding-Website#readme",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
     "next": "^9.0.5",
     "next-redux-wrapper": "^3.0.0",

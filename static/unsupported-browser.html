@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Jarrod & Allie | Bad Browser</title>
+  <style>
+    body {
+      color: #585753;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    h1,
+    p,
+    a {
+      font-family: 'Conduit', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      box-sizing: border-box;
+      color: #585753;
+      display: block;
+      font-size: 60px;
+      font-weight: 900;
+      line-height: 70px;
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+
+    p,
+    a {
+      display: block;
+      font-family: 'Conduit', Arial, sans-serif;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 40px;
+    }
+
+
+    .logo {
+      margin-bottom: 30px;
+      max-width: 550px;
+      width: 425px;
+    }
+
+    .wrap {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .browser-icons {
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .browser-icons a {
+      font-size: 19px;
+      letter-spacing: 1.5px;
+      font-family: 'Conduit', Arial, sans-serif;
+      font-weight: 900;
+      margin: 0 40px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      position: relative;
+      color: #585753;
+      flex-direction: column;
+      transition: all 300ms;
+    }
+
+    .browser-icons a::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      left: 0;
+      bottom: 3px;
+      height: 4px;
+      background: #00B7B0;
+      transition: all 0.3s;
+      will-change: height;
+    }
+
+    .browser-icons a:hover img {
+      opacity: .3;
+    }
+
+    .browser-icons a:hover::after {
+      background: #57D9D5;
+    }
+
+    .browser-icons img {
+      transition: 300ms ease;
+      margin-bottom: 20px;
+      max-width: 80px;
+      opacity: 0.6;
+    }
+
+    ::selection {
+      background: #B9D431;
+      color: #585753;
+    }
+  </style>
+</head>
+
+<body class="unsupported-browser">
+  <div class="wrap">
+    <img class="logo" src="/static/img/logo.svg" alt="BRT Logistics Logo" />
+    <h1>Your browser is out of date.</h1>
+    <p>It has known security flaws and may not display</br> all features of this and other websites.</p>
+    <p>Please install one of the supported browsers below:</p>
+    <div class="browser-icons">
+      <a href="https://www.google.com/intl/en/chrome/browser/desktop/" target="_blank" rel="noopener noreferrer">
+        <img alt="Chrome" src="/static/img/chrome.png" />
+        Chrome
+      </a>
+      <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener noreferrer">
+        <img alt="Firefox" src="/static/img/firefox.png" />
+        Firefox
+      </a>
+      <a href="http://support.apple.com/downloads/#safari" target="_blank" rel="noopener noreferrer">
+        <img alt="Safari" src="/static/img/safari.png" />
+        Safari
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
