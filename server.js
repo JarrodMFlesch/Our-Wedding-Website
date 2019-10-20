@@ -1,6 +1,10 @@
 require('isomorphic-fetch');
 require('dotenv');
 
+const nextRoutes = require('next-routes');
+
+const routes = nextRoutes();
+
 const express = require('express');
 const next = require('next');
 const bodyParser = require('body-parser');
@@ -8,7 +12,7 @@ const unsupportedBrowser = require('./unsupported-browser');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const handler = app.getRequestHandler();
+const handle = routes.getRequestHandler(app);
 
 const { PORT } = process.env;
 
@@ -24,7 +28,9 @@ app
 
     server.use(unsupportedBrowser);
 
-    server.use(handler);
+    server.get('*', (req, res) => {
+      return handle(req, res);
+    });
 
     server.listen(port, (err) => {
       if (err) throw err;

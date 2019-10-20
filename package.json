@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "prod": "npm i && next build && node server.js -p $PORT",
+    "prod": "yarn && next build && node server.js -p $PORT",
     "export": "npm i && next build && next export"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "lodash": "^4.17.15",
     "next": "^9.0.5",
     "next-redux-wrapper": "^3.0.0",
+    "next-routes": "^1.4.2",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
