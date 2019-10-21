@@ -8,6 +8,8 @@ import AboutTheEvent from '../components/sections/AboutTheEvent';
 import Questionare from '../components/sections/Questionare';
 
 import './index.scss';
+import WeddingParty from '../components/sections/WeddingParty';
+import Registry from '../components/sections/Registry';
 
 const baseClass = 'homepage';
 
@@ -26,6 +28,15 @@ const Home = () => {
       <Questionare />
 
       <Spacer size="large" />
+
+      <WeddingParty />
+
+      <Spacer size="medium" />
+
+      <Registry />
+
+      <Spacer size="medium" />
+
     </SiteWidth>
   );
 };

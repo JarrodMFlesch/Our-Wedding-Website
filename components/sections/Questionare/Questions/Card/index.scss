@@ -5,19 +5,28 @@
   color: $sage-green;
   padding: 20px;
   width: 100%;
+  overflow: visible;
 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  &:hover {
+    .question-card__number {
+      transform: translate(-5px, -5px);
+    }
+  }
+
   &__number {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 300ms ease-out;
 
     position: absolute;
     top: -15px; left: -15px;
+    transform: translate(0);
     width: 30px;
     height: 30px;
     background: $light-sage-green;

@@ -1,11 +1,31 @@
+import React from 'react';
+
+import Row from '../Row';
+import Column from '../Column';
+import SiteWidth from '../SiteWidth';
+
+import './index.scss';
+
 const Footer = (props) => {
   return (
-    <footer>
-      <div>
-        <h2>Footer goes here</h2>
-      </div>
+    <footer className="footer">
+      <SiteWidth>
+        <Row>
+          <Column span={8}>
+            <h4 className="footer-text">Looking to RSVP online and save a few tree branches?</h4>
+          </Column>
+
+          <Column span={4}>
+            <div className="footer-rsvp-wrap">
+              <a href="/">
+                <button className="footer-rsvp">RSVP</button>
+              </a>
+            </div>
+          </Column>
+        </Row>
+      </SiteWidth>
     </footer>
   );
-}
+};
 
 export default Footer;
