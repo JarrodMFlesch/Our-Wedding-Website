@@ -1,0 +1,31 @@
+@import '_styles';
+
+.prev-next {
+  display: flex;
+  position: relative;
+  z-index: 1;
+
+  &__prev,
+  &__next {
+    display: flex;
+    padding: 4px 10px;
+    border: 1px solid black;
+
+    svg {
+      transition: 1000ms ease-in-out;
+    }
+
+    &--is-inactive {
+      opacity: .25;
+    }
+  }
+
+  &__prev {
+    position: relative;
+    left: 1px;
+
+    > svg {
+      transform: rotate(180deg);
+    }
+  }
+}

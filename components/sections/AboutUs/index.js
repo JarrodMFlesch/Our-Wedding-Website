@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 const AboutUs = (props) => {
   const { windowWidth } = props;
 
-  const aboutUsImage = (windowWidth >= breakpoints.tabletWidth || 0) ? '/static/img/engagement-header-wide.png' : '/static/img/brew-ya-tall.jpg';
+  const aboutUsImage = (windowWidth >= breakpoints.tabletWidth || windowWidth === 0) ? '/static/img/engagement-header-wide.png' : '/static/img/engagement-header-tall.png';
 
   return (
     <ImageContent className={`${baseClass}`} overlayText imagePath={aboutUsImage}>

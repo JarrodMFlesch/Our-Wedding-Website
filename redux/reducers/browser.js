@@ -1,5 +1,5 @@
 const defaultState = {
-  windowWidth: 375,
+  windowWidth: 0,
   frameWidth: 0,
   contentWidth: 0,
   windowHeight: 600,
