@@ -24,18 +24,22 @@ const questionSetArray = [
       {
         text: 'Working at Culvers',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'At Lakeview',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Jarrod played hockey with Collin',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Through mutual friends',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -45,18 +49,22 @@ const questionSetArray = [
       {
         text: 'Founders',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Dark Horse',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Perrin',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'New Holland',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -66,18 +74,22 @@ const questionSetArray = [
       {
         text: 'Maverick',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Merlen',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'Cooper',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Oliver',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -87,18 +99,22 @@ const questionSetArray = [
       {
         text: 'Our dogs',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'Our phones',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Coffee in the morning',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Not sure',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -108,18 +124,22 @@ const questionSetArray = [
       {
         text: 'Krystal Falls mini golf',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'Movie theater in Battle Creek',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: '',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: '',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -129,18 +149,22 @@ const questionSetArray = [
       {
         text: '3 years',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: '7 years',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: '5 years',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: '10 years',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -150,18 +174,22 @@ const questionSetArray = [
       {
         text: 'Survivor',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'American Idol',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: '',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: '',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -171,18 +199,22 @@ const questionSetArray = [
       {
         text: 'Apr/Jan',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'Jun/Aug',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Dec/May',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Mar/Dec',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
@@ -192,18 +224,22 @@ const questionSetArray = [
       {
         text: 'Downtown Grand Rapids',
         isCorrect: true,
+        isSelected: false,
       },
       {
         text: 'Hometown, Battle Creek',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Grand Ravines Dog Park',
         isCorrect: false,
+        isSelected: false,
       },
       {
         text: 'Mackinac Island',
         isCorrect: false,
+        isSelected: false,
       },
     ],
   },
