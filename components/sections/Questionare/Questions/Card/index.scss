@@ -12,6 +12,10 @@
   justify-content: center;
   align-items: center;
 
+  p {
+    margin-bottom: 0;
+  }
+
   &:hover {
     .question-card__number {
       transform: translate(-5px, -5px);

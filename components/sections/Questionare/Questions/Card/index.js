@@ -12,7 +12,8 @@ function Card(props) {
   const {
     handleSelection,
     answer,
-    cardNumber,
+    answerIndex,
+    questionNumber,
     setTallestCard,
     tallestCard,
   } = props;
@@ -33,12 +34,12 @@ function Card(props) {
           minHeight: `${tallestCard}px`,
         }}
         onClick={() => {
-          handleSelection(answer.isCorrect);
+          handleSelection(questionNumber, answerIndex);
         }}
         type="button"
         ref={cardRef}
       >
-        <span className={`${baseClass}__number`}>{cardNumber + 1}</span>
+        <span className={`${baseClass}__number`}>{questionNumber + 1}</span>
         <div type="button">
           <p>{answer.text}</p>
         </div>

@@ -118,7 +118,7 @@ function PrevNextSlide(props) {
   return (
     <div className={classes}>
       <button
-        className={`${baseClass}__prev${isOnFirst ? ` ${baseClass}__prev--is-inactive` : ''}`}
+        className={`${baseClass}__prev${isOnFirst ? ` ${baseClass}__prev--is-inactive` : ` ${baseClass}__prev--is-active`}`}
         onClick={() => (!isOnFirst && !isTransitioning) && setCurrentIndex(prevSlideIndex)}
         type="button"
         aria-label="Previous Slide"
@@ -127,7 +127,7 @@ function PrevNextSlide(props) {
       </button>
 
       <button
-        className={`${baseClass}__next${(isOnLast || !isNextSlideEnabled) ? ` ${baseClass}__next--is-inactive` : ''}`}
+        className={`${baseClass}__next${(isOnLast || !isNextSlideEnabled) ? ` ${baseClass}__next--is-inactive` : ` ${baseClass}__next--is-active`}`}
         onClick={() => (!isOnLast && !isTransitioning && isNextSlideEnabled) && setCurrentIndex(nextSlideIndex)}
         type="button"
         aria-label="Next Slide"

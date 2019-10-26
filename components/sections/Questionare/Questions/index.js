@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -40,43 +40,169 @@ const questionSetArray = [
     ],
   },
   {
-    title: 'Who am I',
+    title: 'What is our favorite brewery?',
     answers: [
       {
-        text: 'Ans 1',
+        text: 'Founders',
+        isCorrect: false,
+      },
+      {
+        text: 'Dark Horse',
+        isCorrect: false,
+      },
+      {
+        text: 'Perrin',
         isCorrect: true,
       },
       {
-        text: 'Ans 2',
-        isCorrect: false,
-      },
-      {
-        text: 'Ans 3',
-        isCorrect: false,
-      },
-      {
-        text: 'Ans 4',
+        text: 'New Holland',
         isCorrect: false,
       },
     ],
   },
   {
-    title: 'Who am I',
+    title: 'What is the name of our oldest dog?',
     answers: [
       {
-        text: 'Ans 1',
+        text: 'Maverick',
+        isCorrect: false,
+      },
+      {
+        text: 'Merlen',
         isCorrect: true,
       },
       {
-        text: 'Ans 2',
+        text: 'Cooper',
         isCorrect: false,
       },
       {
-        text: 'Ans 3',
+        text: 'Oliver',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    title: 'What\'s something we cannot live without',
+    answers: [
+      {
+        text: 'Our dogs',
+        isCorrect: true,
+      },
+      {
+        text: 'Our phones',
         isCorrect: false,
       },
       {
-        text: 'Ans 4',
+        text: 'Coffee in the morning',
+        isCorrect: false,
+      },
+      {
+        text: 'Not sure',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    title: 'Where was our first date?',
+    answers: [
+      {
+        text: 'Krystal Falls mini golf',
+        isCorrect: true,
+      },
+      {
+        text: 'Movie theater in Battle Creek',
+        isCorrect: false,
+      },
+      {
+        text: '',
+        isCorrect: false,
+      },
+      {
+        text: '',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    title: 'How long have we been dating?',
+    answers: [
+      {
+        text: '3 years',
+        isCorrect: false,
+      },
+      {
+        text: '7 years',
+        isCorrect: true,
+      },
+      {
+        text: '5 years',
+        isCorrect: false,
+      },
+      {
+        text: '10 years',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    title: 'What is one of our favorite TV shows?',
+    answers: [
+      {
+        text: 'Survivor',
+        isCorrect: true,
+      },
+      {
+        text: 'American Idol',
+        isCorrect: true,
+      },
+      {
+        text: '',
+        isCorrect: false,
+      },
+      {
+        text: '',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    title: 'Our birthdays are in what months?',
+    answers: [
+      {
+        text: 'Apr/Jan',
+        isCorrect: true,
+      },
+      {
+        text: 'Jun/Aug',
+        isCorrect: false,
+      },
+      {
+        text: 'Dec/May',
+        isCorrect: false,
+      },
+      {
+        text: 'Mar/Dec',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    title: 'Where was the proposal?',
+    answers: [
+      {
+        text: 'Downtown Grand Rapids',
+        isCorrect: true,
+      },
+      {
+        text: 'Hometown, Battle Creek',
+        isCorrect: false,
+      },
+      {
+        text: 'Grand Ravines Dog Park',
+        isCorrect: false,
+      },
+      {
+        text: 'Mackinac Island',
         isCorrect: false,
       },
     ],
@@ -105,14 +231,24 @@ function Questions(props) {
     },
   };
 
+  const handleSelection = useCallback(
+    (currentQuestion, selectedAnswer) => {
+      console.log(currentQuestion, selectedAnswer);
+      // check to see if the answer is correct
+      const selectionIsCorrect = questionSetArray[currentQuestion].answers[selectedAnswer].isCorrect;
+      console.log(selectionIsCorrect);
+    },
+    [],
+  );
+
   return (
     <Row className={baseClass}>
       <Column span={12}>
         <div className="slider-wrap">
           <Slider {...sliderSettings} ref={sliderRef}>
-            {questionSetArray.map((questionSet, index) => {
+            {questionSetArray.map((questionSet, currentQuestionIndex) => {
               return (
-                <Row key={`row-${index}`}>
+                <Row key={`row-${currentQuestionIndex}`}>
                   <Column span={12}>
                     <h4>{questionSet.title}</h4>
                   </Column>
@@ -120,12 +256,13 @@ function Questions(props) {
                   <Column span={12}>
                     <div className={`${baseClass}__row-wrap`}>
                       <Row>
-                        {questionSetArray[index].answers.map((answer, cardIndex) => (
+                        {questionSetArray[currentQuestionIndex].answers.map((answer, answerIndex) => (
                           <Card
-                            key={cardIndex}
-                            handleSelection={setIsNextSlideEnabled}
+                            key={answerIndex}
+                            handleSelection={() => handleSelection(currentQuestionIndex, answerIndex)}
+                            currentQuestion={currentQuestionIndex}
                             answer={answer}
-                            cardNumber={cardIndex}
+                            questionNumber={answerIndex}
                             currentTallestCard={tallestCard}
                             setTallestCard={setTallestCard}
                           />

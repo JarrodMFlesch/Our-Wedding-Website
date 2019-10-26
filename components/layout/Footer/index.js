@@ -11,11 +11,11 @@ const Footer = (props) => {
     <footer className="footer">
       <SiteWidth>
         <Row>
-          <Column span={8}>
+          <Column span={8} midBreak={12}>
             <h4 className="footer-text">Looking to RSVP online and save a few tree branches?</h4>
           </Column>
 
-          <Column span={4}>
+          <Column span={4} midBreak={12}>
             <div className="footer-rsvp-wrap">
               <a href="/">
                 <button className="footer-rsvp">RSVP</button>

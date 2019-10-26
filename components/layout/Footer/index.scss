@@ -15,9 +15,29 @@
     padding: 20px 50px;
     font-family: $font-heading;
     font-size: 25px;
+    color: $dark-gray;
 
     &-wrap {
       align-self: center;
+    }
+  }
+
+  @include mid-break {
+    &-text {
+      text-align: center;
+    }
+
+    &-rsvp {
+      margin-top: 25px;
+      width: 100%;
+
+      &-wrap {
+        width: 100%;
+
+        button {
+          text-align: center;
+        }
+      }
     }
   }
 }
