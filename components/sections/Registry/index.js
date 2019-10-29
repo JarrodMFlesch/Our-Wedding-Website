@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 
 const Registry = () => {
   return (
-    <h3>Registry information to come</h3>
+    <>
+      <h3>Our Registries</h3>
+      <ul>
+        <li>Bed Bath & Beyond</li>
+        <li>Amazon</li>
+      </ul>
+    </>
   );
 };
 

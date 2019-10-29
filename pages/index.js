@@ -17,6 +17,8 @@ const Home = () => {
   return (
 
     <SiteWidth className={`${baseClass}`}>
+      {console.log('Jim, Jake & Sean — get out.')}
+
       <AboutUs />
 
       <Spacer size="large" />

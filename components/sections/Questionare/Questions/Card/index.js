@@ -15,23 +15,25 @@ function Card(props) {
     answerIndex,
     questionNumber,
     setTallestCard,
-    tallestCard,
+    currentTallestCard,
   } = props;
 
   const cardRef = useRef();
 
   useEffect(() => {
     if (cardRef.current) {
-      if (cardRef.current.offsetHeight > tallestCard) setTallestCard(cardRef.current.offsetHeight);
+      if (cardRef.current.offsetHeight > currentTallestCard) setTallestCard(cardRef.current.offsetHeight);
     }
-  }, [tallestCard]);
+  }, [currentTallestCard]);
+
+  const answerStatus = answer.isCorrect ? 'correct' : 'incorrect';
 
   return (
-    <Column span={3} midBreak={6}>
+    <Column span={3} midBreak={6} className={`${baseClass}__wrap`}>
       <button
-        className={baseClass}
+        className={`${baseClass} ${baseClass}--is-${answerStatus}`}
         style={{
-          minHeight: `${tallestCard}px`,
+          minHeight: `${currentTallestCard}px`,
         }}
         onClick={() => {
           handleSelection(questionNumber, answerIndex);

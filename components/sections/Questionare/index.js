@@ -15,9 +15,7 @@ const Questionare = () => {
       <Row className={`${baseClass}__heading`}>
         <Column span={12}>
           <h3>
-            How well do you know us?
-            &nbsp;
-            <span className="h4" role="img" aria-label="winking smiley face">😉</span>
+            How well do you think you know us?
           </h3>
         </Column>
       </Row>

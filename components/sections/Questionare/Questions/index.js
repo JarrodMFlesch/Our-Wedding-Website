@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -27,7 +27,7 @@ const questionSetArray = [
         isSelected: false,
       },
       {
-        text: 'At Lakeview',
+        text: 'In Highschool, at Lakeview',
         isCorrect: false,
         isSelected: false,
       },
@@ -42,6 +42,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'What is our favorite brewery?',
@@ -67,6 +68,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'What is the name of our oldest dog?',
@@ -92,6 +94,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'What\'s something we cannot live without',
@@ -117,6 +120,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'Where was our first date?',
@@ -142,6 +146,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'How long have we been dating?',
@@ -167,6 +172,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'What is one of our favorite TV shows?',
@@ -192,6 +198,7 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'Our birthdays are in what months?',
@@ -217,13 +224,14 @@ const questionSetArray = [
         isSelected: false,
       },
     ],
+    wasAnswered: false,
   },
   {
     title: 'Where was the proposal?',
     answers: [
       {
         text: 'Downtown Grand Rapids',
-        isCorrect: true,
+        isCorrect: false,
         isSelected: false,
       },
       {
@@ -238,20 +246,25 @@ const questionSetArray = [
       },
       {
         text: 'Mackinac Island',
-        isCorrect: false,
+        isCorrect: true,
         isSelected: false,
       },
     ],
+    wasAnswered: false,
+  },
+  {
+    isLastSlide: true,
   },
 ];
 
 function Questions(props) {
   const { windowWidth } = props;
   const sliderRef = useRef();
+  const [answersCorrect, setAnswersCorrect] = useState(0);
+  const [currentSelection, setCurrentSelection] = useState(null);
   const [forcedUpdateTicker, setForcedUpdateTicker] = useState(0);
   const [forcedUpdateSwipeDirection, setforcedUpdateSwipeDirection] = useState(null);
   const [isNextSlideEnabled, setIsNextSlideEnabled] = useState(false);
-  const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [tallestCard, setTallestCard] = useState(0);
 
   const sliderSettings = {
@@ -269,40 +282,79 @@ function Questions(props) {
 
   const handleSelection = useCallback(
     (currentQuestion, selectedAnswer) => {
-      console.log(currentQuestion, selectedAnswer);
-      // check to see if the answer is correct
-      const selectionIsCorrect = questionSetArray[currentQuestion].answers[selectedAnswer].isCorrect;
-      console.log(selectionIsCorrect);
+      if (!questionSetArray[currentQuestion].wasAnswered) {
+        if (questionSetArray[currentQuestion].answers[selectedAnswer].isCorrect) {
+          setAnswersCorrect(answersCorrect + 1);
+        }
+      }
+
+      questionSetArray[currentQuestion].wasAnswered = true;
+      setIsNextSlideEnabled(true);
+      setCurrentSelection(selectedAnswer);
     },
-    [],
+    [currentSelection, answersCorrect],
   );
 
   return (
-    <Row className={baseClass}>
+    <Row className={`${baseClass} ${baseClass}`}>
       <Column span={12}>
         <div className="slider-wrap">
           <Slider {...sliderSettings} ref={sliderRef}>
             {questionSetArray.map((questionSet, currentQuestionIndex) => {
               return (
-                <Row key={`row-${currentQuestionIndex}`}>
+                <Row
+                  key={`row-${currentQuestionIndex}`}
+                  className={`card-status${questionSet.wasAnswered ? '--complete' : '--incomplete'}`}
+                >
                   <Column span={12}>
-                    <h4>{questionSet.title}</h4>
+                    {(currentQuestionIndex < questionSetArray.length - 1)
+                      ? <h4>{`${currentQuestionIndex + 1}. ${questionSet.title}`}</h4>
+                      : <h4>Results</h4>
+                    }
                   </Column>
 
                   <Column span={12}>
                     <div className={`${baseClass}__row-wrap`}>
                       <Row>
-                        {questionSetArray[currentQuestionIndex].answers.map((answer, answerIndex) => (
-                          <Card
-                            key={answerIndex}
-                            handleSelection={() => handleSelection(currentQuestionIndex, answerIndex)}
-                            currentQuestion={currentQuestionIndex}
-                            answer={answer}
-                            questionNumber={answerIndex}
-                            currentTallestCard={tallestCard}
-                            setTallestCard={setTallestCard}
-                          />
-                        ))}
+                        {questionSetArray[currentQuestionIndex].isLastSlide
+                          ? (
+                            <Column className={`${baseClass}__results-slide`}>
+                              {answersCorrect > Math.floor((questionSetArray.length - 1) / 2)
+                                ? (
+                                  <>
+                                    <p>{`${answersCorrect} of ${questionSetArray.length - 1} correct`}</p>
+                                    <h3>
+                                      Nice Job, looks like you made the list!
+                                      &nbsp;
+                                      <span className="h4" role="img" aria-label="winking smiley face">😉</span>
+                                    </h3>
+                                  </>
+                                )
+                                : (
+                                  <>
+                                    <p>{`${answersCorrect} of ${questionSetArray.length - 1} correct`}</p>
+                                    <h3>
+                                      It&apos;s ok, you&apos;re still invited.
+                                      &nbsp;
+                                      <span className="h4" role="img" aria-label="winking smiley face">😉</span>
+                                    </h3>
+                                  </>
+                                )
+                              }
+                            </Column>
+                          )
+                          : questionSetArray[currentQuestionIndex].answers.map((answer, answerIndex) => (
+                            <Card
+                              key={answerIndex}
+                              handleSelection={() => handleSelection(currentQuestionIndex, answerIndex)}
+                              currentQuestion={currentQuestionIndex}
+                              answer={answer}
+                              questionNumber={answerIndex}
+                              currentTallestCard={tallestCard}
+                              setTallestCard={setTallestCard}
+                            />
+                          ))
+                        }
                       </Row>
                     </div>
                   </Column>
@@ -313,17 +365,23 @@ function Questions(props) {
         </div>
       </Column>
 
-      <Column span={12} justify="end" s>
+      <Column span={12} justify="end">
         <PrevNextSlide
+          sliderRef={sliderRef}
           className={`${baseClass}__navigation`}
           slideCount={questionSetArray.length}
           animationTime={sliderSettings.speed}
-          sliderRef={sliderRef}
           forcedUpdateTicker={forcedUpdateTicker}
           forcedUpdateSwipeDirection={forcedUpdateSwipeDirection}
           forcedUpdateType="swipe"
           autoRotate
-          onChange={index => setCurrentSetIndex(index)}
+          onClick={(direction) => {
+            if (direction === 'right') {
+              setIsNextSlideEnabled(false);
+            } else {
+              setIsNextSlideEnabled(true);
+            }
+          }}
           isNextSlideEnabled={isNextSlideEnabled}
         />
       </Column>

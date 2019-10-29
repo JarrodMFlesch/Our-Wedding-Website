@@ -36,3 +36,34 @@
     background: $light-sage-green;
   }
 }
+
+.card-status {
+  &--complete {
+    .question-card {
+      &--is-correct {
+        background: $sage-green;
+        color: white;
+
+        .question-card {
+          &__number {
+            color: $sage-green;
+            border: 1px solid $sage-green;
+          }
+        }
+      }
+
+      &--is-incorrect {
+        background: #fdf7f7;
+        border: 2px solid #ffc7c7;
+        color: #d69e9e;
+
+        .question-card {
+          &__number {
+            background: #fdf7f7;
+            border: 1px solid #ffc7c7;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import Chevron from '../../graphics/Chevron';
@@ -37,6 +37,8 @@ function PrevNextSlide(props) {
     forcedUpdateSwipeDirection,
     forcedUpdateTicker,
     isNextSlideEnabled,
+    infiniteScroll,
+    onClick,
   } = props;
 
   const [currentSlideIndex, setCurrentIndex] = useState(0);
@@ -45,6 +47,7 @@ function PrevNextSlide(props) {
   const [isOnFirst, setIsOnFirst] = useState(true);
   const [isOnLast, setIsOnLast] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState('right');
 
   const getPrevIndex = (index) => {
     return index - 1 < 0 ? initialSlideCount - 1 : index - 1;
@@ -108,18 +111,34 @@ function PrevNextSlide(props) {
     }
   }, [forcedUpdateTicker]);
 
+  const navClick = useCallback(
+    (slideDirection) => {
+      if (slideDirection === 'right') {
+        setCurrentIndex(nextSlideIndex);
+        if (onClick) onClick('right');
+      } else {
+        setCurrentIndex(prevSlideIndex);
+        if (onClick) onClick('left');
+      }
+    },
+    [nextSlideIndex, prevSlideIndex, currentSlideIndex],
+  );
+
   const baseClass = 'prev-next';
 
   const classes = [
     className,
     baseClass,
+    isOnFirst && `${baseClass}__is-on-first`,
+    isOnLast && `${baseClass}__is-on-last`,
+    infiniteScroll && `${baseClass}__infinite-scroll`,
   ].filter(Boolean).join(' ');
 
   return (
     <div className={classes}>
       <button
         className={`${baseClass}__prev${isOnFirst ? ` ${baseClass}__prev--is-inactive` : ` ${baseClass}__prev--is-active`}`}
-        onClick={() => (!isOnFirst && !isTransitioning) && setCurrentIndex(prevSlideIndex)}
+        onClick={(((!isOnFirst && !isTransitioning) || (infiniteScroll && !isTransitioning))) ? () => navClick('left') : undefined}
         type="button"
         aria-label="Previous Slide"
       >
@@ -127,8 +146,8 @@ function PrevNextSlide(props) {
       </button>
 
       <button
-        className={`${baseClass}__next${(isOnLast || !isNextSlideEnabled) ? ` ${baseClass}__next--is-inactive` : ` ${baseClass}__next--is-active`}`}
-        onClick={() => (!isOnLast && !isTransitioning && isNextSlideEnabled) && setCurrentIndex(nextSlideIndex)}
+        className={`${baseClass}__next${(!isNextSlideEnabled) ? ` ${baseClass}__next--is-inactive` : ` ${baseClass}__next--is-active`}`}
+        onClick={(((isNextSlideEnabled && !isTransitioning) || (infiniteScroll && !isTransitioning))) ? () => navClick('right') : undefined}
         type="button"
         aria-label="Next Slide"
       >

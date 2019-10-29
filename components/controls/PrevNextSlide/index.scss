@@ -12,16 +12,16 @@
     border: 1px solid $sage-green;
     margin-left: 0;
     margin-right: 0;
+    transition: 500ms ease;
 
     svg {
-      transition: 1000ms ease-in-out;
+      transition: 500ms ease;
       path {
         stroke: $sage-green;
       }
     }
 
     &--is-active {
-      transition: 500ms ease;
 
       &:hover {
         background: $sage-green;
@@ -31,10 +31,18 @@
           }
         }
       }
+
+      + .prev-next__next--is-inactive {
+        border-left-color: $sage-green;
+      }
     }
 
     &--is-inactive {
-      opacity: .25;
+      border-color: #E0E5E3;
+
+      svg {
+        opacity: .25;
+      }
     }
   }
 
@@ -44,6 +52,54 @@
 
     > svg {
       transform: rotate(180deg);
+    }
+  }
+
+  &__is-on-first {
+    .prev-next__prev {
+      opacity: 0;
+    }
+  }
+
+  &__is-on-last {
+    .prev-next {
+      &__prev {
+        border-right: 1px solid $sage-green;
+      }
+
+      &__next {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__infinite-scroll {
+    .prev-next {
+      &__prev,
+      &__next {
+        &--is-inactive,
+        &--is-active {
+          opacity: 1;
+          border: 1px solid $sage-green;
+
+          svg {
+            opacity: 1;
+          }
+
+          &:hover {
+            background: $sage-green;
+            svg {
+              path {
+                stroke: white;
+              }
+            }
+          }
+        }
+      }
+
+      &__prev {
+        border-right: none;
+      }
     }
   }
 }

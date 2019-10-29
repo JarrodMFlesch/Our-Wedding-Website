@@ -35,7 +35,7 @@ const Column = React.forwardRef((props, ref) => {
     largeBreak && `${baseName}--large-break-span-${largeBreak}`,
     largePush && `${baseName}--large-break-push-${largePush}`,
     midBreak && `${baseName}--mid-break-span-${midBreak}`,
-    midPush && `${baseName}--mid-break-push-${midPush}`,
+    (midPush || midPush === 0) && `${baseName}--mid-break-push-${midPush}`,
     smallBreak && `${baseName}--small-break-span-${smallBreak}`,
     smallPush && `${baseName}--small-break-push-${smallPush}`,
     justify && `${baseName}--justify-${justify}`,

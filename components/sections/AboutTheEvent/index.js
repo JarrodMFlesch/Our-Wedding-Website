@@ -20,7 +20,7 @@ const AboutTheEvent = (props) => {
         />
       </Column>
 
-      <Column className={`${baseClass}__information`} push={1} span={7}>
+      <Column className={`${baseClass}__information`} push={1} midPush={0} span={7}>
         <div>
           <h2>About the event</h2>
           <h4>Location</h4>
