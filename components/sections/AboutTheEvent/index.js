@@ -26,17 +26,17 @@ const AboutTheEvent = (props) => {
           <h4>Location</h4>
           <p>Blue Heron Barn</p>
           <p>6464 South 32nd Street, Kalamazoo, MI 49048</p>
-          <h4>Date & Time</h4>
+          <h4>Wedding Date</h4>
           <p>
             June 20
             <sup>th</sup>
             &nbsp;
-            2020 at 2PM
+            2020
           </p>
-          <h4>Attire</h4>
-          <p>some other content</p>
-          <h4>Other note</h4>
-          <p>some other content</p>
+          <h4>Ceremony</h4>
+          <p>4pm to ~4:30pm</p>
+          <h4>Reception</h4>
+          <p>6:30pm to ~11:30pm</p>
         </div>
       </Column>
     </Row>

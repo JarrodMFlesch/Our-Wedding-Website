@@ -33,6 +33,10 @@ body {
 	}
 }
 
+a {
+  text-decoration: underline;
+}
+
 .page {
   position: relative;
   opacity: 1;
@@ -107,8 +111,9 @@ p, .p { @extend %p; }
 
 small, .small { @extend %small; }
 
-a, .a {  @extend %a; }
-
+a {
+  color: $forest-green;
+}
 label, .label { @extend %label; }
 
 /////////////////////////////

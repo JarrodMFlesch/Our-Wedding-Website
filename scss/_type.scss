@@ -116,17 +116,6 @@
   margin: 0 0 base(.5);
 }
 
-%a {
-  transition: box-shadow $trans-time $trans-curve, color $trans-time $trans-curve;
-  text-decoration: none;
-  color: $forest-green;
-
-  &:hover {
-    color: lighten($forest-green, 5%);
-    box-shadow: 0 2px 0 0 lighten($forest-green, 5%);
-  }
-}
-
 %label {
   font-family: $font-heading;
   font-size: base(.72);

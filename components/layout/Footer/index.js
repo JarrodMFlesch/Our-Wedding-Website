@@ -17,8 +17,17 @@ const Footer = (props) => {
 
           <Column span={4} midBreak={12}>
             <div className="footer-rsvp-wrap">
-              <a href="/">
-                <button className="footer-rsvp">RSVP</button>
+              <a
+                href="https://jarrodandalexandria.app.rsvpify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button
+                  className="footer-rsvp"
+                  type="button"
+                >
+                  RSVP
+                </button>
               </a>
             </div>
           </Column>

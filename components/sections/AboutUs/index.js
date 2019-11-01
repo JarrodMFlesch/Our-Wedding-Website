@@ -21,7 +21,7 @@ const AboutUs = (props) => {
   return (
     <ImageContent className={`${baseClass}`} overlayText imagePath={aboutUsImage}>
       <div>
-        <h1>Brew-Ya</h1>
+        <h1>So excited!</h1>
         <br />
         <div>
           <p>
