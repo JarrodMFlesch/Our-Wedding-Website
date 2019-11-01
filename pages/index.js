@@ -26,7 +26,7 @@ const Home = () => {
       <Spacer size="medium" />
 
       <Questionare />
-      <Spacer size="large" />
+      <Spacer size="medium" />
 
       {/* <WeddingParty />
       <Spacer size="medium" /> */}
