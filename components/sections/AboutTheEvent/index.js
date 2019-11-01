@@ -34,9 +34,9 @@ const AboutTheEvent = (props) => {
             2020
           </p>
           <h4>Ceremony</h4>
-          <p>4pm to ~4:30pm</p>
+          <p>4pm to ~4:30pm (Approx.)</p>
           <h4>Reception</h4>
-          <p>6:30pm to ~11:30pm</p>
+          <p>6:30pm to ~11:30pm (Approx.)</p>
         </div>
       </Column>
     </Row>

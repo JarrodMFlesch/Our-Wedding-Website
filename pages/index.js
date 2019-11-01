@@ -20,23 +20,18 @@ const Home = () => {
       {console.log('Jim, Jake & Sean — get out.')}
 
       <AboutUs />
-
       <Spacer size="large" />
 
       <AboutTheEvent />
-
       <Spacer size="medium" />
 
       <Questionare />
-
       <Spacer size="large" />
 
-      <WeddingParty />
-
-      <Spacer size="medium" />
+      {/* <WeddingParty />
+      <Spacer size="medium" /> */}
 
       <Registry />
-
       <Spacer size="medium" />
 
     </SiteWidth>

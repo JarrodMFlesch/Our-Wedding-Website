@@ -115,7 +115,7 @@ const questionSetArray = [
         isSelected: false,
       },
       {
-        text: 'Not sure',
+        text: 'Pizza',
         isCorrect: false,
         isSelected: false,
       },
@@ -136,12 +136,12 @@ const questionSetArray = [
         isSelected: false,
       },
       {
-        text: '',
+        text: 'Cedar Point',
         isCorrect: false,
         isSelected: false,
       },
       {
-        text: '',
+        text: 'Nottke\'s Bowling Alley',
         isCorrect: false,
         isSelected: false,
       },
@@ -149,7 +149,7 @@ const questionSetArray = [
     wasAnswered: false,
   },
   {
-    title: 'How long have we been dating?',
+    title: 'How long have we been together?',
     answers: [
       {
         text: '3 years',
@@ -184,16 +184,16 @@ const questionSetArray = [
       },
       {
         text: 'American Idol',
-        isCorrect: true,
-        isSelected: false,
-      },
-      {
-        text: '',
         isCorrect: false,
         isSelected: false,
       },
       {
-        text: '',
+        text: 'Friends',
+        isCorrect: true,
+        isSelected: false,
+      },
+      {
+        text: 'The Office',
         isCorrect: false,
         isSelected: false,
       },
