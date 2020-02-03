@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Registry = () => {
   return (
     <>
       <h3>Our Registries</h3>
-      <p>Currently we are only registered with Bed Bath &amp; Beyond, but that may change in the future!</p>
       <ul>
         <li>
           <a
@@ -16,7 +14,15 @@ const Registry = () => {
             Bed Bath &amp; Beyond
           </a>
         </li>
-        {/* <li>Amazon</li> */}
+        <li>
+          <a
+            href="https://www.honeyfund.com/wedding/FleschInLove"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Our Honeymoon (Details Inside!)
+          </a>
+        </li>
       </ul>
     </>
   );
