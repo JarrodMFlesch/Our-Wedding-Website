@@ -29,7 +29,7 @@ function Card(props) {
   const answerStatus = answer.isCorrect ? 'correct' : 'incorrect';
 
   return (
-    <Column span={3} midBreak={6} className={`${baseClass}__wrap`}>
+    <Column span={3} midBreak={12} className={`${baseClass}__wrap`}>
       <button
         className={`${baseClass} ${baseClass}--is-${answerStatus}`}
         style={{

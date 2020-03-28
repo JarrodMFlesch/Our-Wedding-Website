@@ -18,6 +18,12 @@ const browser = (state = defaultState, action) => {
         headerHeight: action.payload,
       };
 
+    case 'SET_RSVP_HEIGHT':
+      return {
+        ...state,
+        rsvpHeight: action.payload,
+      };
+
     case 'SET_WINDOW_WIDTHS':
       return {
         ...state,
@@ -32,34 +38,10 @@ const browser = (state = defaultState, action) => {
         windowHeight: action.payload,
       };
 
-    case 'SET_QUERY_PARAMS':
-      return {
-        ...state,
-        queryParams: action.payload,
-      };
-
-    case 'SET_MASK':
-      return {
-        ...state,
-        mask: action.payload,
-      };
-
     case 'UPDATE_SCROLL':
       return {
         ...state,
         scrollPos: action.payload,
-      };
-
-    case 'SET_COOKIE_CONSENT':
-      return {
-        ...state,
-        allowCookies: action.payload,
-      };
-
-    case 'SHOW_COOKIE_BANNER':
-      return {
-        ...state,
-        showCookieBanner: action.payload,
       };
 
     default:

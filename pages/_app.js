@@ -9,7 +9,7 @@ import makeStore from '../redux/store';
 import Error from './_error';
 
 import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+import RSVP from '../components/sections/RSVP';
 import HeaderSpacer from '../components/layout/HeaderSpacer';
 import LoadingIndicator from '../components/elements/LoadingIndicator';
 import WindowSize from '../components/utilities/WindowSize';
@@ -83,7 +83,7 @@ class WeddingApp extends App {
             </div>
           </CSSTransition>
         </div>
-        <Footer />
+        <RSVP />
         <WindowSize />
         <MeasureScroll />
       </Provider>

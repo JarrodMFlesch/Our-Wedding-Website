@@ -1,0 +1,66 @@
+@import '_styles';
+
+.footer {
+  padding-top: 20px;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+
+  &-content-wrap {
+    padding: 15px;
+    background: linear-gradient( 95deg, #323232 20%, #1C1C1C);
+  }
+
+  .row {
+    align-items: center;
+  }
+
+  &-text {
+    margin: 0;
+    color: white;
+    line-height: 1.25;
+  }
+
+  &-rsvp {
+    background: white;
+    padding: 17px 50px 15px 50px;
+    font-family: $font-heading;
+    font-size: 24px;
+    color: $dark-gray;
+
+    &-wrap {
+      margin-left: auto;
+      align-self: center;
+
+      button {
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  @include mid-break {
+    &-text {
+      text-align: center;
+      display: none;
+    }
+
+    .site-width {
+      padding: 0;
+    }
+
+    &-rsvp {
+      width: 100%;
+      padding: 12px 10px 10px 10px;
+      font-size: 20px;
+
+      &-wrap {
+        width: 80%;
+        margin: auto;
+
+        button {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

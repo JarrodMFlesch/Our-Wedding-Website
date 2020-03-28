@@ -24,9 +24,8 @@
   }
 
   @include mid-break {
-    .question-card__wrap:nth-child(1),
-    .question-card__wrap:nth-child(2) {
-      margin-bottom: 40px;
+    .question-card__wrap {
+      margin-bottom: 20px;
     }
   }
 }
