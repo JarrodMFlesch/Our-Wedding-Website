@@ -14,9 +14,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const RSVP = (props) => {
+  const { setRSVPHeight } = props;
   const rsvpRef = useRef(null);
 
-  const { setRSVPHeight } = props;
   useEffect(() => {
     const rsvpHeight = rsvpRef.current ? rsvpRef.current.offsetHeight : 0;
     setRSVPHeight(rsvpHeight);
@@ -28,7 +28,11 @@ const RSVP = (props) => {
         <SiteWidth>
           <Row>
             <Column span={8} midBreak={12}>
-              <p className="footer-text">Due to COVID-19 you can now RSVP online :)</p>
+              <p className="footer-text">
+                Due to COVID-19 you can now RSVP online
+                <span role="img" aria-label="heart">❤️</span>
+                <span role="img" aria-label="arrow right">➡️</span>
+              </p>
             </Column>
 
             <Column span={4} midBreak={12}>
