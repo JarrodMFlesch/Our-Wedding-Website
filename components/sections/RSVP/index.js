@@ -28,7 +28,7 @@ const RSVP = (props) => {
         <SiteWidth>
           <Row>
             <Column span={8} midBreak={12}>
-              <p className="footer-text">We will be sending RSVP's in the mail - but you are more than welcome (encouraged) to RSVP online!</p>
+              <p className="footer-text">Due to COVID-19 you can now RSVP online :)</p>
             </Column>
 
             <Column span={4} midBreak={12}>
