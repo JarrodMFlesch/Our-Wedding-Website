@@ -29,7 +29,7 @@ const RSVP = (props) => {
           <Row>
             <Column span={8} midBreak={12}>
               <p className="footer-text">
-                Due to COVID-19 you can now RSVP online
+                Due to COVID-19 you can now RSVP online&nbps;
                 <span role="img" aria-label="heart">❤️</span>
                 <span role="img" aria-label="arrow right">➡️</span>
               </p>
