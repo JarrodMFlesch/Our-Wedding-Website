@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
@@ -15,52 +15,69 @@ const mapStateToProps = state => ({
   scrollPos: state.scrollPos,
 });
 
-class Header extends Component {
-  baseClass = 'header';
+const baseClass = 'header';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMounted: false,
-    };
-    this.headerRef = React.createRef();
-  }
+const Header = (props) => {
+  const { scrollPos, setHeaderHeight, windowWidth } = props;
+  const headerRef = useRef();
+  const [showingAlert, setShowingAlert] = useState(true);
 
-  componentDidMount() {
-    this.setState({ isMounted: true });
-    this.measureHeaderHeight();
-  }
+  useEffect(() => {
+    setHeaderHeight(headerRef.current.offsetHeight);
+  }, [windowWidth, showingAlert]);
 
-  componentWillReceiveProps(prevProps) {
-    const { windowWidth } = this.props;
-    if (prevProps.windowWidth !== windowWidth) {
-      this.measureHeaderHeight();
-    }
-  }
+  const shouldShowShadow = scrollPos > 100;
+  const classes = [
+    baseClass,
+    shouldShowShadow && `${baseClass}--show-shadow`,
+  ].filter(Boolean).join(' ');
 
-  measureHeaderHeight = () => {
-    const { setHeaderHeight } = this.props;
-    setHeaderHeight(this.headerRef.current.offsetHeight);
-  }
+  return (
+    <div ref={headerRef} className={classes}>
+      <div className={`alert alert--${showingAlert ? 'visible' : 'hidden'}`}>
+        <SiteWidth>
+          <p className={`${baseClass}__pill ${baseClass}__pill--tl`}><em>COVID-19 Announcement</em></p>
+          <p className="alert__text">
+            Due to COVID-19 we have decided to change our wedding, we will be having an intimate ceremony with our closest loved ones on June 20th, followed by a reception on Sunday September 6th at 6pm (Labor Day Weekend). We hope everyone is staying safe, we love you all!
+            <br />
+            <b>
+              Please RSVP by August 9th&nbsp;
+              <a
+                href="https://fleschwedding.eventbrite.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                here
+              </a>
+              , or using the RSVP button stuck to the bottom of the page!
 
-  render() {
-    const { scrollPos } = this.props;
-    const shouldShowShadow = scrollPos > 100;
+            </b>
 
-    const classes = [
-      this.baseClass,
-      shouldShowShadow && `${this.baseClass}--show-shadow`,
-    ].filter(Boolean).join(' ');
-
-    return (
-      <header className={classes} ref={this.headerRef}>
-        <SiteWidth className={`${this.baseClass}-wrap`}>
-          <h6 className={`${this.baseClass}__logo`}>Jarrod & Alexandria</h6>
+            <button
+              className={`${baseClass}__pill ${baseClass}__pill--br`}
+              type="button"
+              onMouseUp={() => setShowingAlert(false)}
+            >
+              <em>Close</em>
+            </button>
+          </p>
+        </SiteWidth>
+      </div>
+      <header>
+        <SiteWidth className={`${baseClass}-wrap`}>
+          <h6 className={`${baseClass}__logo`}>Jarrod & Alexandria</h6>
+          <button
+            className={`covid-button covid-button--${showingAlert ? 'hidden' : 'visible'}`}
+            type="button"
+            onMouseUp={() => setShowingAlert(true)}
+          >
+            <em>COVID-19 Info</em>
+          </button>
         </SiteWidth>
       </header>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Header.propTypes = {
   setHeaderHeight: PropTypes.func.isRequired,

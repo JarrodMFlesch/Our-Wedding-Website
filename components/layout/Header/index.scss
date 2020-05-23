@@ -10,7 +10,9 @@
   transition: box-shadow $trans-time $trans-curve;
   background: white;
 
-  padding: base(1) 0;
+  header {
+    padding: base(1) 0;
+  }
 
   &-wrap {
     display: flex;
@@ -24,5 +26,60 @@
 
   &__logo {
     margin-bottom: 0;
+  }
+
+  &__pill {
+    position: relative;
+    display: inline-block;
+    color: white;
+    background: tomato;
+    padding: base(.25) base(.5);
+    margin-bottom: 0;
+    font-weight: bold;
+
+    &--tl {
+      left: - base(1.75);
+    }
+
+    &--br {
+      right: - base(1.75); bottom: - base(.75);
+      float: right;
+    }
+  }
+
+  .alert {
+    &--hidden {
+      display: none;
+    }
+
+    &__text {
+      padding: base(.75) 0 base(1.25);
+      font-size: base(.75);
+    }
+
+    .site-width {
+      box-shadow: inset 0px 0px 0px 5px tomato;
+    }
+  }
+
+  .covid-button {
+    font-size: base(.6);
+    color: tomato;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  @include small-break {
+    &__pill {
+      &--tl {
+        left: - base(.75);
+      }
+
+      &--br {
+        right: - base(.75);
+      }
+    }
   }
 }
