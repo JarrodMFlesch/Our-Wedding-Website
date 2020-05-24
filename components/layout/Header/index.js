@@ -52,14 +52,15 @@ const Header = (props) => {
               , or using the RSVP button stuck to the bottom of the page!
 
             </b>
-
-            <button
-              className={`${baseClass}__pill ${baseClass}__pill--br`}
-              type="button"
-              onMouseUp={() => setShowingAlert(false)}
-            >
-              <em>Close</em>
-            </button>
+            <div className={`${baseClass}__close-button-wrapper`}>
+              <button
+                className={`${baseClass}__pill ${baseClass}__pill--br`}
+                type="button"
+                onMouseUp={() => setShowingAlert(false)}
+              >
+                <em>Close</em>
+              </button>
+            </div>
           </p>
         </SiteWidth>
       </div>
