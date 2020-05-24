@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
@@ -43,7 +43,7 @@ const Header = (props) => {
             <b>
               Please RSVP by August 9th&nbsp;
               <a
-                href="https://fleschwedding.eventbrite.com"
+                href="https://allieandjarrod.eventbrite.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
