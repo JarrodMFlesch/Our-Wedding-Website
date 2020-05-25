@@ -38,7 +38,7 @@ const RSVP = (props) => {
             <Column span={4} midBreak={12}>
               <div className="footer-rsvp-wrap">
                 <a
-                  href="https://allieandjarrod.eventbrite.com"
+                  href="https://fleschwedding.eventbrite.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -20,7 +20,7 @@ const baseClass = 'header';
 const Header = (props) => {
   const { scrollPos, setHeaderHeight, windowWidth } = props;
   const headerRef = useRef();
-  const [showingAlert, setShowingAlert] = useState(true);
+  const [showingAlert, setShowingAlert] = useState(false);
 
   useEffect(() => {
     setHeaderHeight(headerRef.current.offsetHeight);
@@ -67,13 +67,13 @@ const Header = (props) => {
       <header>
         <SiteWidth className={`${baseClass}-wrap`}>
           <h6 className={`${baseClass}__logo`}>Jarrod & Alexandria</h6>
-          <button
+          {/* <button
             className={`covid-button covid-button--${showingAlert ? 'hidden' : 'visible'}`}
             type="button"
             onMouseUp={() => setShowingAlert(true)}
           >
             <em>COVID-19 Info</em>
-          </button>
+          </button> */}
         </SiteWidth>
       </header>
     </div>
